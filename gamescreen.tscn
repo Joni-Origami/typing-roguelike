@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://vp8aq3w75a53"]
+
+[ext_resource type="Script" uid="uid://bono6rskxuyjb" path="res://gameplay.gd" id="1_igufd"]
+[ext_resource type="Script" uid="uid://xd2biytgk0mm" path="res://inputevents.gd" id="2_c4t3t"]
+[ext_resource type="Script" uid="uid://dhtaqa2r4sc0x" path="res://sentences.gd" id="2_xrcqf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4t3t"]
+bg_color = Color(0.68235296, 0.3882353, 0.47058824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrcqf"]
+bg_color = Color(0.49803922, 0.5921569, 0.5058824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr3ex"]
+bg_color = Color(0.91764706, 0.70980394, 0.58431375, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vh2s"]
+bg_color = Color(0.7616657, 0.4917056, 0.31977507, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdn3h"]
+bg_color = Color(0.8829383, 0.6311195, 0.4802696, 1)
+
+[node name="GameplayScreen" type="Node2D" unique_id=724252821]
+script = ExtResource("1_igufd")
+
+[node name="Background" type="ColorRect" parent="." unique_id=910089657]
+z_index = -1
+offset_left = -17.0
+offset_top = -12.0
+offset_right = 1164.0
+offset_bottom = 666.0
+color = Color(0.68235296, 0.3882353, 0.47058824, 1)
+
+[node name="WinItems" type="Node" parent="." unique_id=357157186]
+
+[node name="RevealText" type="Label" parent="WinItems" unique_id=1445055764]
+offset_left = 448.0
+offset_top = 552.0
+offset_right = 704.0
+offset_bottom = 581.0
+text = "↓ This is what you typed ↓"
+horizontal_alignment = 1
+
+[node name="TypingProgress" type="ProgressBar" parent="WinItems" unique_id=1090657300]
+z_index = 1
+offset_left = 3.0
+offset_top = 572.0
+offset_right = 1149.0
+offset_bottom = 645.0
+theme_override_styles/background = SubResource("StyleBoxFlat_c4t3t")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xrcqf")
+show_percentage = false
+
+[node name="ShopButton" type="Button" parent="WinItems" unique_id=428270089]
+offset_left = 512.0
+offset_top = 416.0
+offset_right = 640.0
+offset_bottom = 491.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr3ex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0vh2s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sdn3h")
+text = "Shop"
+
+[node name="Gameplay" type="Node" parent="." unique_id=2084868176]
+
+[node name="Rotate" type="Node2D" parent="Gameplay" unique_id=1801247505]
+position = Vector2(576, 200)
+
+[node name="SentenceShow" type="RichTextLabel" parent="Gameplay/Rotate" unique_id=1225372798]
+offset_left = -432.0
+offset_top = -136.0
+offset_right = 431.0
+offset_bottom = 120.0
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "Sentence zone"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_xrcqf")
+
+[node name="SentenceTake" type="LineEdit" parent="Gameplay" unique_id=1077539471]
+offset_left = 9.0
+offset_top = 582.0
+offset_right = 1146.0
+offset_bottom = 638.0
+tooltip_text = "Type Here!"
+theme_override_font_sizes/font_size = 23
+alignment = 1
+keep_editing_on_text_submit = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+virtual_keyboard_show_on_focus = false
+script = ExtResource("2_c4t3t")
+
+[node name="Timer_bar" type="ProgressBar" parent="Gameplay" unique_id=1527352075]
+offset_right = 1152.0
+offset_bottom = 48.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Gameplay/Timer_bar" unique_id=1946594539]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 76.0
+offset_bottom = 47.0
+text = "Timer:"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Gameplay" unique_id=744951046]
+
+[connection signal="pressed" from="WinItems/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="text_changed" from="Gameplay/SentenceTake" to="." method="_on_sentence_take_text_changed"]

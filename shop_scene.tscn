@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b2emkececoexq"]
+
+[ext_resource type="Script" uid="uid://b705h65tavrb4" path="res://shop_scene.gd" id="1_42hh6"]
+
+[node name="ShopScene" type="Node2D" unique_id=1063027230]
+script = ExtResource("1_42hh6")
+
+[node name="background" type="ColorRect" parent="." unique_id=1845885667]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.7529412, 0.7254902, 0.85882354, 1)
+
+[node name="newRound" type="Button" parent="." unique_id=1678798280]
+offset_left = 944.0
+offset_top = 496.0
+offset_right = 1073.0
+offset_bottom = 568.0
+text = "Next round"
+
+[connection signal="pressed" from="newRound" to="." method="_on_new_round_pressed"]

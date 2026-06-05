@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ddtkxyigw5b4g"]
+
+[ext_resource type="Script" uid="uid://bk1oj24qes0w" path="res://debug_scene.gd" id="1_lnlp5"]
+
+[node name="debug scene" type="Node2D" unique_id=954179254]
+script = ExtResource("1_lnlp5")
+
+[node name="shop_scene" type="Button" parent="." unique_id=609361011]
+offset_left = 248.0
+offset_top = 240.0
+offset_right = 400.0
+offset_bottom = 360.0
+text = "Shop Scene"
+
+[node name="Gamescreen" type="Button" parent="." unique_id=2070216097]
+offset_left = 688.0
+offset_top = 240.0
+offset_right = 840.0
+offset_bottom = 360.0
+text = "Gamescreen"
+
+[connection signal="pressed" from="shop_scene" to="." method="_on_shop_scene_pressed"]
+[connection signal="pressed" from="Gamescreen" to="." method="_on_gamescreen_pressed"]
