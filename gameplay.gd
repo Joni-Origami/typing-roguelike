@@ -11,7 +11,6 @@ var rotate_sentence = false
 var rotate_steps = [0.05,0.1,0.05,0,-0.05,-0.05,-0.1,-0.1,-0.1,0.05,-0.05,0,0.05,0.1,0.05]
 var current_step = 0
 @onready var sentences = get_node("/root/GameplayScreen/Gameplay/Rotate/SentenceShow")
-@onready var stats = get_node("/root/GameplayScreen/Player")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,7 +23,7 @@ func _ready() -> void:
 	max_timer_value = int(correct_sentence.length() * 25)
 	$Gameplay/Timer_bar.max_value = max_timer_value
 	$WinItems/ShopButton.hide()
-	update_stats(stats.coins)
+	update_stats(PlayerStats.coins)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -66,11 +65,11 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 
 func give_rewards() -> void:
 	var percentage_of_time = $Gameplay/Timer_bar.value / max_timer_value
-	stats.coins += int(1 + ((1-percentage_of_time) * 6))
-	update_stats(stats.coins)
+	PlayerStats.coins += int(1 + ((1-percentage_of_time) * 6))
+	update_stats(PlayerStats.coins)
 
 func _on_shop_button_pressed() -> void:
 	get_tree().change_scene_to_file('res://shop_scene.tscn')
 
 func update_stats(coins) -> void:
-	$Player/StatsText.text = "Coins: " + str(stats.coins)
+	$Player/StatsText.text = "Coins: " + str(PlayerStats.coins)
