@@ -7,3 +7,11 @@ var mid_sentences = [
 	"A good example of a useful vegetable is medicinal rhubarb",
 	"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
 	]
+
+var short_sentences = [
+	"Memento mori.",
+	"How are you on this fine day?",
+	"Fee fi fo thumb, I smell an englishman on the run",
+	"Godot is a great game engine!",
+	"I believe in trans rights <3"
+]

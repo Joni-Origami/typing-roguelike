@@ -12,10 +12,14 @@ var max_timer_value : int
 var rotate_sentence = false
 var rotate_steps = [0.05,0.1,0.05,0,-0.05,-0.05,-0.1,-0.1,-0.1,0.05,-0.05,0,0.05,0.1,0.05]
 var current_step = 0
+var coins_increase = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	correct_sentence = sentences.mid_sentences.pick_random()
+	if PlayerStats.sentence_length == "mid":
+		correct_sentence = sentences.mid_sentences.pick_random()
+	elif PlayerStats.sentence_length == "short":
+		correct_sentence = sentences.short_sentences.pick_random()
 	sentence_left = correct_sentence
 	$WinItems/TypingProgress.max_value = correct_sentence.length()
 	$Gameplay/Rotate/SentenceShow.text = "Type this sentence:\n[color=#5F414F]" + correct_sentence
@@ -54,19 +58,25 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 		mistakes_made += 1
 		rotate_sentence = true
 	if sentence_left.is_empty(): #Sentence has been typed correctly
+		give_rewards()
 		$Gameplay/Rotate.rotation = 0
-		$Gameplay/Rotate/SentenceShow.text = "Congrats! you made " + str(mistakes_made) + " mistakes"
+		$Gameplay/Rotate/SentenceShow.text = "Congrats! you made " + str(mistakes_made) + " mistakes
+			\n you got " + str(coins_increase) + " Coins
+			"
 		$WinItems/TypingProgress.hide()
 		$WinItems/RevealText.show()
 		$Gameplay/Timer_bar.show_percentage = true
 		$WinItems/ShopButton.show()
 		timer_active = false
 		is_first_letter = false
-		give_rewards()
+		
 
 func give_rewards() -> void:
 	var percentage_of_time = $Gameplay/Timer_bar.value / max_timer_value
-	PlayerStats.coins += int(PlayerStats.flat_coin + ((1-percentage_of_time) * 6))
+	coins_increase = int(PlayerStats.flat_coin + ((1-percentage_of_time) * 6) - (mistakes_made/2))
+	if coins_increase < 0:
+		coins_increase = 0
+	PlayerStats.coins += coins_increase
 	update_stats(PlayerStats.coins)
 
 func _on_shop_button_pressed() -> void:

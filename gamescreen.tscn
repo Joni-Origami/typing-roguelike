@@ -66,9 +66,9 @@ position = Vector2(576, 200)
 
 [node name="SentenceShow" type="RichTextLabel" parent="Gameplay/Rotate" unique_id=1225372798]
 offset_left = -432.0
-offset_top = -136.0
+offset_top = -80.0
 offset_right = 431.0
-offset_bottom = 120.0
+offset_bottom = 144.0
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "Sentence zone"
@@ -76,7 +76,6 @@ fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
 horizontal_alignment = 1
-vertical_alignment = 1
 script = ExtResource("2_xrcqf")
 
 [node name="SentenceTake" type="LineEdit" parent="Gameplay" unique_id=1077539471]

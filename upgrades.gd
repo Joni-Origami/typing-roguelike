@@ -15,7 +15,7 @@ var upgrades = [
 		"pretty_text": "Shorter sentence next round",
 		"id": "short_sentence",
 		"mode": "set",
-		"target": "PlayerStats.sentence_type",
+		"target": "sentence_length",
 		"value": "short",
 		"price": 5
 	},
