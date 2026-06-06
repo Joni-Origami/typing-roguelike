@@ -26,3 +26,4 @@ var coins = 0
 var sentence_length = "mid"
 var flat_coin = 0
 var round_time_mult = 1
+var mistake_penalty_mult = 2.5

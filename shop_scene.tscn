@@ -3,6 +3,156 @@
 [ext_resource type="Script" uid="uid://cko6dwdh0aihq" path="res://shop_scene.gd" id="1_42hh6"]
 [ext_resource type="Script" uid="uid://6x7gpulcuuau" path="res://player_stats.gd" id="2_ylxq0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylxq0"]
+bg_color = Color(0.49803922, 0.6745098, 0.8392157, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c04yc"]
+bg_color = Color(0.21194497, 0.36187017, 0.49710256, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlo24"]
+bg_color = Color(0.34907207, 0.5403611, 0.7150643, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g438"]
+bg_color = Color(0.92535293, 0.9253528, 0.9253529, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hp0fw"]
+bg_color = Color(0.7962427, 0.79624313, 0.796243, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71p40"]
+bg_color = Color(0.9079417, 0.9079417, 0.90794164, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkwdu"]
+bg_color = Color(1, 0.6666667, 0.40784314, 1)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qo6fm"]
+bg_color = Color(1, 0.7372549, 0.5372549, 1)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6bpy"]
+bg_color = Color(1, 0.814525, 0.68012947, 1)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4af7v"]
+bg_color = Color(0.9254902, 0.9254902, 0.9254902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dav6d"]
+bg_color = Color(0.79607844, 0.79607844, 0.79607844, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gi6au"]
+bg_color = Color(0.9098039, 0.9098039, 0.9098039, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7iqsd"]
+bg_color = Color(1, 0.6673617, 0.40968722, 1)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk041"]
+bg_color = Color(1, 0.7372549, 0.5372549, 1)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsk4o"]
+bg_color = Color(1, 0.8156863, 0.6784314, 1)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h6nl"]
+bg_color = Color(0.9254902, 0.9254902, 0.9254902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rvmk"]
+bg_color = Color(0.79607844, 0.79607844, 0.79607844, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuotj"]
+bg_color = Color(0.9098039, 0.9098039, 0.9098039, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3icxh"]
+bg_color = Color(1, 0.6666667, 0.40784314, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oh6l1"]
+bg_color = Color(0.99999934, 0.7372731, 0.535389, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smcpb"]
+bg_color = Color(1, 0.8156863, 0.6784314, 1)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwlf8"]
+bg_color = Color(0.64705884, 0.40392157, 0.5568628, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iv8jd"]
+bg_color = Color(0.41377726, 0.23493326, 0.3488486, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_av8qb"]
+bg_color = Color(0.5456968, 0.32470557, 0.46478522, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
 [node name="ShopScene" type="Node2D" unique_id=1063027230]
 script = ExtResource("1_42hh6")
 
@@ -16,6 +166,9 @@ offset_left = 960.0
 offset_top = 512.0
 offset_right = 1089.0
 offset_bottom = 584.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ylxq0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c04yc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tlo24")
 text = "Next round"
 
 [node name="Player" type="Node" parent="." unique_id=975278413]
@@ -39,33 +192,57 @@ offset_left = -152.0
 offset_top = -64.0
 offset_right = 152.0
 offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_pressed_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_hover_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1g438")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hp0fw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_71p40")
 text = "Item 1"
 
 [node name="Buy_Button" type="Button" parent="Items_for_sale/Rotate_1/Item_1" unique_id=395467926]
 layout_mode = 0
-offset_left = 96.0
+offset_left = 104.0
 offset_top = 136.0
-offset_right = 192.0
+offset_right = 203.0
 offset_bottom = 192.0
-text = "{coins} Coins"
+theme_override_colors/font_color = Color(0.172833, 0.17283255, 0.17283264, 1)
+theme_override_colors/font_pressed_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_hover_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_fkwdu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qo6fm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a6bpy")
+text = "Coins"
 
 [node name="Rotate_2" type="Node2D" parent="Items_for_sale" unique_id=675225385]
 position = Vector2(576, 120)
 
 [node name="Item_2" type="Button" parent="Items_for_sale/Rotate_2" unique_id=1989279313]
-offset_left = -152.0
+offset_left = -144.0
 offset_top = -64.0
-offset_right = 152.0
+offset_right = 160.0
 offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_pressed_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_hover_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_4af7v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dav6d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gi6au")
 text = "Item 2"
 
 [node name="Buy_Button" type="Button" parent="Items_for_sale/Rotate_2/Item_2" unique_id=1832687138]
 layout_mode = 0
 offset_left = 96.0
 offset_top = 136.0
-offset_right = 192.0
+offset_right = 195.0
 offset_bottom = 192.0
-text = "{coins} Coins"
+theme_override_colors/font_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_pressed_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_hover_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7iqsd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mk041")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wsk4o")
+text = "Coins"
 
 [node name="Rotate_3" type="Node2D" parent="Items_for_sale" unique_id=2094369185]
 position = Vector2(936, 120)
@@ -75,15 +252,28 @@ offset_left = -152.0
 offset_top = -64.0
 offset_right = 152.0
 offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_focus_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_pressed_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_hover_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_0h6nl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3rvmk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fuotj")
 text = "Item 3"
 
 [node name="Buy_Button" type="Button" parent="Items_for_sale/Rotate_3/Item_3" unique_id=227296107]
 layout_mode = 0
-offset_left = 112.0
+offset_left = 104.0
 offset_top = 136.0
-offset_right = 208.0
+offset_right = 203.0
 offset_bottom = 192.0
-text = "{coins} Coins"
+theme_override_colors/font_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_pressed_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_colors/font_hover_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_3icxh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oh6l1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_smcpb")
+text = "Coins"
 
 [node name="Rotate_Reroll" type="Node2D" parent="Items_for_sale" unique_id=1635466870]
 position = Vector2(1024, 456)
@@ -93,6 +283,9 @@ offset_left = -64.0
 offset_top = -40.0
 offset_right = 64.0
 offset_bottom = 32.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_hwlf8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iv8jd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_av8qb")
 text = "Reroll: {coins}"
 
 [connection signal="pressed" from="newRound" to="." method="_on_new_round_pressed"]

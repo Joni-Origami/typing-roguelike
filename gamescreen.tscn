@@ -5,8 +5,36 @@
 [ext_resource type="Script" uid="uid://dhtaqa2r4sc0x" path="res://sentences.gd" id="2_xrcqf"]
 [ext_resource type="Script" uid="uid://6x7gpulcuuau" path="res://player_stats.gd" id="4_qr3ex"]
 
+[sub_resource type="GDScript" id="GDScript_qr3ex"]
+script/source = "extends ColorRect
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	palette = palettes.pick_random()
+	$\".\".color = palette.background
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+
+var palette
+var palettes = [
+	{
+		\"background\": Color(\"#AE6378\"),
+		\"type_progress_bar\": Color(\"#7E9680\")
+	},
+	{
+		\"background\": Color(\"#138086\"),
+		\"type_progress_bar\": Color(\"#534666\")
+	}
+]
+"
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4t3t"]
-bg_color = Color(0.33333334, 0.21568628, 0.24705882, 1)
+bg_color = Color(0.16862746, 0.16862746, 0.16862746, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrcqf"]
 bg_color = Color(0.49803922, 0.5921569, 0.5058824, 1)
@@ -20,6 +48,15 @@ bg_color = Color(0.7616657, 0.4917056, 0.31977507, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdn3h"]
 bg_color = Color(0.8829383, 0.6311195, 0.4802696, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otpj5"]
+bg_color = Color(0.33333334, 0.21568628, 0.24705882, 0.6156863)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3crv"]
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [node name="GameplayScreen" type="Node2D" unique_id=724252821]
 script = ExtResource("1_igufd")
 
@@ -28,6 +65,7 @@ z_index = -1
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.68235296, 0.3882353, 0.47058824, 1)
+script = SubResource("GDScript_qr3ex")
 
 [node name="WinItems" type="Node" parent="." unique_id=357157186]
 
@@ -100,6 +138,8 @@ script = ExtResource("2_c4t3t")
 [node name="Timer_bar" type="ProgressBar" parent="Gameplay" unique_id=1527352075]
 offset_right = 1152.0
 offset_bottom = 48.0
+theme_override_styles/background = SubResource("StyleBoxFlat_otpj5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_r3crv")
 show_percentage = false
 
 [node name="Label" type="Label" parent="Gameplay/Timer_bar" unique_id=1946594539]

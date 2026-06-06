@@ -3,7 +3,10 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var rarity_list_of_upgrades = []
+	for i in range(upgrades.size()):
+		rarity_list_of_upgrades.append(float(upgrades[i].rarity))
+	print(rarity_list_of_upgrades)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,7 +20,8 @@ var upgrades = [
 		"mode": "set",
 		"target": "sentence_length",
 		"value": "short",
-		"price": 5
+		"price": 5,
+		"rarity": "0.5" #common
 	},
 	{
 		"pretty_text": "More coins in reward",
@@ -25,7 +29,8 @@ var upgrades = [
 		"mode": "add",
 		"target": "flat_coin",
 		"value": 2,
-		"price": 3
+		"price": 3,
+		"rarity": "0.2" #uncommon
 	},
 	{
 		"pretty_text": "More round time",
@@ -33,7 +38,17 @@ var upgrades = [
 		"mode": "mult",
 		"target": "round_time_mult",
 		"value": 1.25,
-		"price": 5
+		"price": 5,
+		"rarity": "0.2" #uncommon
+	},
+	{
+		"pretty_text": "Decrease mistake penalty",
+		"id": "mistake_penalty",
+		"mode": "add",
+		"target": "mistake_penalty_mult",
+		"value": -0.25,
+		"price": 10,
+		"rarity": "0.1" #rare
 	}
 ]
 
