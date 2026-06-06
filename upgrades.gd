@@ -26,6 +26,14 @@ var upgrades = [
 		"target": "flat_coin",
 		"value": 2,
 		"price": 3
+	},
+	{
+		"pretty_text": "More round time",
+		"id": "round_time_increase",
+		"mode": "mult",
+		"target": "round_time_mult",
+		"value": 1.25,
+		"price": 5
 	}
 ]
 
@@ -45,5 +53,5 @@ func apply_upgrade(upgrade: Dictionary) -> void:
 			PlayerStats.set(target, value)
 		"add":
 			PlayerStats.set(target, PlayerStats.get(target) + value)
-		"multiply":
+		"mult":
 			PlayerStats.set(target, PlayerStats.get(target) * value)

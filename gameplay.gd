@@ -10,9 +10,8 @@ var timer_active = false
 var is_first_letter = true
 var max_timer_value : int
 var rotate_sentence = false
-var rotate_steps = [0.05,0.1,0.05,0,-0.05,-0.05,-0.1,-0.1,-0.1,0.05,-0.05,0,0.05,0.1,0.05]
-var current_step = 0
 var coins_increase = 0
+var multiple_coin
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,7 +24,7 @@ func _ready() -> void:
 	$Gameplay/Rotate/SentenceShow.text = "Type this sentence:\n[color=#5F414F]" + correct_sentence
 	$Gameplay/SentenceTake.grab_focus()
 	$WinItems/RevealText.hide()
-	max_timer_value = int(correct_sentence.length() * 25)
+	max_timer_value = int(correct_sentence.length() * 15 * PlayerStats.round_time_mult)
 	$Gameplay/Timer_bar.max_value = max_timer_value
 	$WinItems/ShopButton.hide()
 	update_stats(PlayerStats.coins)
@@ -38,11 +37,9 @@ func _process(_delta: float) -> void:
 		if time_passed >= max_timer_value:
 			timer_active = false
 	if rotate_sentence:
-		$Gameplay/Rotate.rotate(rotate_steps[current_step])
-		current_step += 1
-		if current_step == rotate_steps.size():
-			current_step = 0
+		if PlayerStats.agitate_object($Gameplay/Rotate):
 			rotate_sentence = false
+	
 
 func _on_sentence_take_text_changed(new_text: String) -> void:
 	if !timer_active:
@@ -58,24 +55,34 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 		mistakes_made += 1
 		rotate_sentence = true
 	if sentence_left.is_empty(): #Sentence has been typed correctly
+		var multiple_mistakes
+		if mistakes_made == 1:
+			multiple_mistakes = "mistake"
+		else:
+			multiple_mistakes = "mistakes"
 		give_rewards()
-		$Gameplay/Rotate.rotation = 0
-		$Gameplay/Rotate/SentenceShow.text = "Congrats! you made " + str(mistakes_made) + " mistakes
-			\n you got " + str(coins_increase) + " Coins
-			"
+		$Gameplay/Rotate.rotation_degrees = 0
+		$Gameplay/Rotate/SentenceShow.text = "Round clear!
+You made " + str(mistakes_made) + " " + multiple_mistakes + "
+you got " + str(coins_increase) + " " + multiple_coin
 		$WinItems/TypingProgress.hide()
 		$WinItems/RevealText.show()
 		$Gameplay/Timer_bar.show_percentage = true
 		$WinItems/ShopButton.show()
 		timer_active = false
 		is_first_letter = false
+		if PlayerStats.sentence_length == "short":
+			PlayerStats.sentence_length = "mid"
 		
 
 func give_rewards() -> void:
 	var percentage_of_time = $Gameplay/Timer_bar.value / max_timer_value
-	coins_increase = int(PlayerStats.flat_coin + ((1-percentage_of_time) * 6) - (mistakes_made/2))
-	if coins_increase < 0:
-		coins_increase = 0
+	coins_increase = int(PlayerStats.flat_coin + ((1-percentage_of_time) * 6) - mistakes_made)
+	if coins_increase < 1:
+		coins_increase = 1
+		multiple_coin = "Coin"
+	else:
+		multiple_coin = "Coins"
 	PlayerStats.coins += coins_increase
 	update_stats(PlayerStats.coins)
 

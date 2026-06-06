@@ -12,10 +12,10 @@ offset_bottom = 648.0
 color = Color(0.7529412, 0.7254902, 0.85882354, 1)
 
 [node name="newRound" type="Button" parent="." unique_id=1678798280]
-offset_left = 944.0
-offset_top = 496.0
-offset_right = 1073.0
-offset_bottom = 568.0
+offset_left = 960.0
+offset_top = 512.0
+offset_right = 1089.0
+offset_bottom = 584.0
 text = "Next round"
 
 [node name="Player" type="Node" parent="." unique_id=975278413]
@@ -24,57 +24,82 @@ script = ExtResource("2_ylxq0")
 [node name="StatsText" type="RichTextLabel" parent="Player" unique_id=388855911]
 offset_left = 16.0
 offset_top = 464.0
-offset_right = 216.0
+offset_right = 256.0
 offset_bottom = 632.0
 theme_override_font_sizes/normal_font_size = 19
-text = "Stats go here"
+text = "Coins: {coins}"
 
 [node name="Items_for_sale" type="Node" parent="." unique_id=82668525]
 
-[node name="Item_1" type="Button" parent="Items_for_sale" unique_id=2028086448]
-offset_left = 64.0
-offset_top = 56.0
-offset_right = 368.0
-offset_bottom = 192.0
+[node name="Rotate_1" type="Node2D" parent="Items_for_sale" unique_id=963216354]
+position = Vector2(216, 120)
 
-[node name="Buy_Button" type="Button" parent="Items_for_sale/Item_1" unique_id=395467926]
+[node name="Item_1" type="Button" parent="Items_for_sale/Rotate_1" unique_id=2028086448]
+offset_left = -152.0
+offset_top = -64.0
+offset_right = 152.0
+offset_bottom = 72.0
+text = "Item 1"
+
+[node name="Buy_Button" type="Button" parent="Items_for_sale/Rotate_1/Item_1" unique_id=395467926]
 layout_mode = 0
 offset_left = 96.0
 offset_top = 136.0
 offset_right = 192.0
 offset_bottom = 192.0
-text = "3 Coins"
+text = "{coins} Coins"
 
-[node name="Item_2" type="Button" parent="Items_for_sale" unique_id=1989279313]
-offset_left = 424.0
-offset_top = 56.0
-offset_right = 728.0
-offset_bottom = 192.0
+[node name="Rotate_2" type="Node2D" parent="Items_for_sale" unique_id=675225385]
+position = Vector2(576, 120)
 
-[node name="Buy_Button" type="Button" parent="Items_for_sale/Item_2" unique_id=1832687138]
+[node name="Item_2" type="Button" parent="Items_for_sale/Rotate_2" unique_id=1989279313]
+offset_left = -152.0
+offset_top = -64.0
+offset_right = 152.0
+offset_bottom = 72.0
+text = "Item 2"
+
+[node name="Buy_Button" type="Button" parent="Items_for_sale/Rotate_2/Item_2" unique_id=1832687138]
 layout_mode = 0
 offset_left = 96.0
 offset_top = 136.0
 offset_right = 192.0
 offset_bottom = 192.0
-text = "6 Coins"
+text = "{coins} Coins"
 
-[node name="Item_3" type="Button" parent="Items_for_sale" unique_id=1754266222]
-offset_left = 784.0
-offset_top = 56.0
-offset_right = 1088.0
-offset_bottom = 192.0
+[node name="Rotate_3" type="Node2D" parent="Items_for_sale" unique_id=2094369185]
+position = Vector2(936, 120)
 
-[node name="Buy_Button" type="Button" parent="Items_for_sale/Item_3" unique_id=227296107]
+[node name="Item_3" type="Button" parent="Items_for_sale/Rotate_3" unique_id=1754266222]
+offset_left = -152.0
+offset_top = -64.0
+offset_right = 152.0
+offset_bottom = 72.0
+text = "Item 3"
+
+[node name="Buy_Button" type="Button" parent="Items_for_sale/Rotate_3/Item_3" unique_id=227296107]
 layout_mode = 0
 offset_left = 112.0
 offset_top = 136.0
 offset_right = 208.0
 offset_bottom = 192.0
-text = "9 Coins"
+text = "{coins} Coins"
+
+[node name="Rotate_Reroll" type="Node2D" parent="Items_for_sale" unique_id=1635466870]
+position = Vector2(1024, 456)
+
+[node name="Reroll_button" type="Button" parent="Items_for_sale/Rotate_Reroll" unique_id=2003342236]
+offset_left = -64.0
+offset_top = -40.0
+offset_right = 64.0
+offset_bottom = 32.0
+text = "Reroll: {coins}"
 
 [connection signal="pressed" from="newRound" to="." method="_on_new_round_pressed"]
-[connection signal="pressed" from="Items_for_sale/Item_1" to="." method="_on_item_1_pressed"]
-[connection signal="pressed" from="Items_for_sale/Item_1/Buy_Button" to="." method="_item_1_bought"]
-[connection signal="pressed" from="Items_for_sale/Item_2" to="." method="_on_item_2_pressed"]
-[connection signal="pressed" from="Items_for_sale/Item_3" to="." method="_on_item_3_pressed"]
+[connection signal="pressed" from="Items_for_sale/Rotate_1/Item_1" to="." method="_on_item_1_pressed"]
+[connection signal="pressed" from="Items_for_sale/Rotate_1/Item_1/Buy_Button" to="." method="_item_1_bought"]
+[connection signal="pressed" from="Items_for_sale/Rotate_2/Item_2" to="." method="_on_item_2_pressed"]
+[connection signal="pressed" from="Items_for_sale/Rotate_2/Item_2/Buy_Button" to="." method="_item_2_bought"]
+[connection signal="pressed" from="Items_for_sale/Rotate_3/Item_3" to="." method="_on_item_3_pressed"]
+[connection signal="pressed" from="Items_for_sale/Rotate_3/Item_3/Buy_Button" to="." method="_item_3_bought"]
+[connection signal="pressed" from="Items_for_sale/Rotate_Reroll/Reroll_button" to="." method="_on_reroll_button_pressed"]
