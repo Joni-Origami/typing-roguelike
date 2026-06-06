@@ -26,6 +26,55 @@ offset_left = 16.0
 offset_top = 464.0
 offset_right = 216.0
 offset_bottom = 632.0
+theme_override_font_sizes/normal_font_size = 19
 text = "Stats go here"
 
+[node name="Items_for_sale" type="Node" parent="." unique_id=82668525]
+
+[node name="Item_1" type="Button" parent="Items_for_sale" unique_id=2028086448]
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 368.0
+offset_bottom = 192.0
+
+[node name="Buy_Button" type="Button" parent="Items_for_sale/Item_1" unique_id=395467926]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 136.0
+offset_right = 192.0
+offset_bottom = 192.0
+text = "3 Coins"
+
+[node name="Item_2" type="Button" parent="Items_for_sale" unique_id=1989279313]
+offset_left = 424.0
+offset_top = 56.0
+offset_right = 728.0
+offset_bottom = 192.0
+
+[node name="Buy_Button" type="Button" parent="Items_for_sale/Item_2" unique_id=1832687138]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 136.0
+offset_right = 192.0
+offset_bottom = 192.0
+text = "6 Coins"
+
+[node name="Item_3" type="Button" parent="Items_for_sale" unique_id=1754266222]
+offset_left = 784.0
+offset_top = 56.0
+offset_right = 1088.0
+offset_bottom = 192.0
+
+[node name="Buy_Button" type="Button" parent="Items_for_sale/Item_3" unique_id=227296107]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 136.0
+offset_right = 208.0
+offset_bottom = 192.0
+text = "9 Coins"
+
 [connection signal="pressed" from="newRound" to="." method="_on_new_round_pressed"]
+[connection signal="pressed" from="Items_for_sale/Item_1" to="." method="_on_item_1_pressed"]
+[connection signal="pressed" from="Items_for_sale/Item_1/Buy_Button" to="." method="_item_1_bought"]
+[connection signal="pressed" from="Items_for_sale/Item_2" to="." method="_on_item_2_pressed"]
+[connection signal="pressed" from="Items_for_sale/Item_3" to="." method="_on_item_3_pressed"]

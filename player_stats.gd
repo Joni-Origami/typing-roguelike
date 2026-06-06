@@ -12,3 +12,5 @@ func _process(_delta: float) -> void:
 
 
 var coins = 0
+var sentence_length = "mid"
+var flat_coin = 1

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerStats="*uid://6x7gpulcuuau"
+Upgrades="*uid://4s2u0xhk78gu"
 
 [physics]
 

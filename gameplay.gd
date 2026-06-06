@@ -15,7 +15,7 @@ var current_step = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	correct_sentence = sentences.sentences.pick_random()
+	correct_sentence = sentences.mid_sentences.pick_random()
 	sentence_left = correct_sentence
 	$WinItems/TypingProgress.max_value = correct_sentence.length()
 	$Gameplay/Rotate/SentenceShow.text = "Type this sentence:\n[color=#5F414F]" + correct_sentence
@@ -66,7 +66,7 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 
 func give_rewards() -> void:
 	var percentage_of_time = $Gameplay/Timer_bar.value / max_timer_value
-	PlayerStats.coins += int(1 + ((1-percentage_of_time) * 6))
+	PlayerStats.coins += int(PlayerStats.flat_coin + ((1-percentage_of_time) * 6))
 	update_stats(PlayerStats.coins)
 
 func _on_shop_button_pressed() -> void:

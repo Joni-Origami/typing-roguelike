@@ -1,6 +1,6 @@
 extends Node
 
-var sentences = [
+var mid_sentences = [
 	"She borrowed the book from him many years ago and hasn't yet returned it",
 	"I met an interesting turtle while the song on the radio blasted away",
 	"He had reached the point where he was paranoid about being paranoid",
