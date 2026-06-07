@@ -58,6 +58,27 @@ corner_radius_bottom_left = 10
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad3m1"]
+bg_color = Color(1, 0.3451546, 0.29239628, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iaote"]
+bg_color = Color(0.84313726, 0, 0.050980393, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gmi0"]
+bg_color = Color(1, 0.25882354, 0.21960784, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [node name="GameplayScreen" type="Node2D" unique_id=724252821]
 script = ExtResource("1_igufd")
 
@@ -89,10 +110,10 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_xrcqf")
 show_percentage = false
 
 [node name="ShopButton" type="Button" parent="WinItems" unique_id=428270089]
-offset_left = 512.0
-offset_top = 416.0
-offset_right = 640.0
-offset_bottom = 491.0
+offset_left = 960.0
+offset_top = 448.0
+offset_right = 1088.0
+offset_bottom = 523.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_qr3ex")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0vh2s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sdn3h")
@@ -151,6 +172,21 @@ offset_right = 76.0
 offset_bottom = 47.0
 text = "Timer:"
 
+[node name="Rotate_Discard" type="Node2D" parent="Gameplay" unique_id=980317954]
+position = Vector2(137.34071, 477.78)
+script = ExtResource("2_sdn3h")
+
+[node name="Discard_Button" type="Button" parent="Gameplay/Rotate_Discard" unique_id=98210761]
+offset_left = -72.0
+offset_top = -40.0
+offset_right = 72.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.9035985, 0.9035982, 0.9035982, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ad3m1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iaote")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7gmi0")
+text = "Reroll Sentence"
+
 [node name="Player" type="Node" parent="." unique_id=1801745877]
 script = ExtResource("4_qr3ex")
 
@@ -168,3 +204,4 @@ text = "Stats go here"
 
 [connection signal="pressed" from="WinItems/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="text_changed" from="Gameplay/SentenceTake" to="." method="_on_sentence_take_text_changed"]
+[connection signal="pressed" from="Gameplay/Rotate_Discard/Discard_Button" to="." method="_on_discard_button_pressed"]

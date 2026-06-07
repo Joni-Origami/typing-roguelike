@@ -4,7 +4,6 @@ extends Node
 @onready var sentences = get_node("/root/GameplayScreen/Gameplay/Rotate/SentenceShow")
 
 
-var correct_sentence
 var sentence_left
 var mistakes_made = 0
 var time_passed = 0
@@ -12,6 +11,8 @@ var timer_active = false
 var is_first_letter = true
 var max_timer_value : int
 var rotate_sentence = false
+var rotate_discards = false
+var can_discard = true
 var coins_increase = 0
 var multiple_coin
 var palette
@@ -22,18 +23,13 @@ var player_total
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	apply_styling()
-	if PlayerStats.sentence_length == "mid":
-		sentences.mid_sentences.shuffle()
-		correct_sentence = sentences.mid_sentences.pop_front()
-	elif PlayerStats.sentence_length == "short":
-		sentences.short_sentences.shuffle()
-		correct_sentence = sentences.short_sentences.pop_front()
-	sentence_left = correct_sentence
-	$WinItems/TypingProgress.max_value = correct_sentence.length()
-	$Gameplay/Rotate/SentenceShow.text = ("Type this sentence:\n[color=%s]" % palette.other_text) + correct_sentence
+	sentences.correct_sentence = decide_sentence()
+	sentence_left = sentences.correct_sentence
+	$WinItems/TypingProgress.max_value = sentences.correct_sentence.length()
+	$Gameplay/Rotate/SentenceShow.text = ("Type this sentence:\n[color=%s]" % palette.other_text) + sentences.correct_sentence
 	$Gameplay/SentenceTake.grab_focus()
 	$WinItems/RevealText.hide()
-	max_timer_value = int(correct_sentence.length() * 15 * PlayerStats.round_time_mult)
+	max_timer_value = int(sentences.correct_sentence.length() * 15 * PlayerStats.round_time_mult)
 	$Gameplay/Timer_bar.max_value = max_timer_value
 	$WinItems/ShopButton.hide()
 	update_stats(PlayerStats.coins)
@@ -49,6 +45,10 @@ func _process(_delta: float) -> void:
 	if rotate_sentence:
 		if PlayerStats.agitate_object($Gameplay/Rotate):
 			rotate_sentence = false
+	if rotate_discards:
+		if PlayerStats.agitate_object($Gameplay/Rotate_Discard):
+			rotate_discards = false
+			can_discard = true
 
 
 func _on_sentence_take_text_changed(new_text: String) -> void:
@@ -58,7 +58,7 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 	var latest_letter = new_text[-1].to_lower()
 	if latest_letter == next_letter:
 		sentence_left = sentence_left.substr(1,-1)
-		var not_typed = correct_sentence.to_lower().trim_suffix(sentence_left.to_lower())
+		var not_typed = sentences.correct_sentence.to_lower().trim_suffix(sentence_left.to_lower())
 		$Gameplay/Rotate/SentenceShow.text = ("\n[color=%s]" % palette.completed_text) + not_typed + ("[/color][color=%s]" % palette.other_text) + sentence_left 
 		$WinItems/TypingProgress.value += 1
 	else:
@@ -127,3 +127,26 @@ func apply_styling() -> void:
 	$WinItems/ShopButton.add_theme_color_override("font_color", palette.shop_font)
 	$WinItems/ShopButton.add_theme_color_override("font_hover_color", palette.shop_font)
 	$WinItems/ShopButton.add_theme_color_override("font_pressed_color", palette.shop_font)
+
+
+func _on_discard_button_pressed() -> void:
+	if can_discard:
+		can_discard = false
+		sentences.correct_sentence = decide_sentence()
+		$Gameplay/Rotate/SentenceShow.text = ("Type this sentence:\n[color=%s]" % palette.other_text) + sentences.correct_sentence
+		rotate_discards = true
+		rotate_sentence = true
+
+
+func decide_sentence() -> String:
+	if PlayerStats.sentence_length == "mid":
+		sentences.mid_sentences.shuffle()
+		sentences.correct_sentence = sentences.mid_sentences.pop_front()
+	elif PlayerStats.sentence_length == "short":
+		sentences.short_sentences.shuffle()
+		sentences.correct_sentence = sentences.short_sentences.pop_front()
+	if sentences.mid_sentences.is_empty():
+		sentences.mid_sentences = sentences.mid_sentences_bak.duplicate()
+	if sentences.short_sentences.is_empty():
+		sentences.short_sentences = sentences.short_sentences_bak.duplicate()
+	return sentences.correct_sentence

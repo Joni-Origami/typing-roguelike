@@ -18,3 +18,7 @@ var short_sentences = [
 	"Black lives matter <3",
 	"Booo capitalism"
 ]
+var mid_sentences_bak = mid_sentences.duplicate()
+var short_sentences_bak = short_sentences.duplicate()
+
+var correct_sentence
