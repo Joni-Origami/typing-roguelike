@@ -26,3 +26,42 @@ var sentence_length = "mid"
 var flat_coin = 0
 var round_time_mult = 1
 var mistake_penalty_mult = 2.5
+
+var palettes = [
+	{
+		"background": Color("#AE6378"),
+		"completed_text": "#7E9680",
+		"other_text": "#5F414F",
+		"shop_colour_normal": Color("#EAB595"),
+		"shop_colour_hover": Color("de9b71ff"),
+		"shop_colour_pressed": Color("c88257ff"),
+		"shop_font": "#000000"
+	},
+	{
+		"background": Color("#138086"),
+		"completed_text": "#534666",
+		"other_text": "#FFFFFF",
+		"shop_colour_normal": Color("#CD7672"),
+		"shop_colour_hover": Color("bc6561ff"),
+		"shop_colour_pressed": Color("af5a58ff"),
+		"shop_font": "#000000"
+	},
+	{
+		"background": Color("#3C4CAD"),
+		"completed_text": "#F04393",
+		"other_text": "#FFFFFF" ,
+		"shop_colour_normal": Color("#FAA7B8"),
+		"shop_colour_hover": Color("f786a1ff"),
+		"shop_colour_pressed": Color("f26b8fff"),
+		"shop_font": "#000000"
+	},
+	{
+		"background": Color("#CCABDB"),
+		"completed_text": "#86E3CE",
+		"other_text": "#5F414F",
+		"shop_colour_normal": Color("#FA897B"),
+		"shop_colour_hover": Color("f56456ff"),
+		"shop_colour_pressed": Color("f35a4cff"),
+		"shop_font": "#000000"
+	}
+]

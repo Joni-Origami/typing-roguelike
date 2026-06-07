@@ -14,47 +14,9 @@ var max_timer_value : int
 var rotate_sentence = false
 var coins_increase = 0
 var multiple_coin
-
-
 var palette
-var palettes = [
-	{
-		"background": Color("#AE6378"),
-		"completed_text": "#7E9680",
-		"other_text": "#5F414F",
-		"shop_colour_normal": Color("#EAB595"),
-		"shop_colour_hover": Color("da956aff"),
-		"shop_colour_pressed": Color("c57f54ff"),
-		"shop_font": ""
-	},
-	{
-		"background": Color("#138086"),
-		"completed_text": "#534666",
-		"other_text": "#FFFFFF",
-		"shop_colour_normal": Color("#CD7672"),
-		"shop_colour_hover": Color("bc6561ff"),
-		"shop_colour_pressed": Color("954947ff"),
-		"shop_font": ""
-	},
-	{
-		"background": Color("#3C4CAD"),
-		"completed_text": "#F04393",
-		"other_text": "#FFFFFF" ,
-		"shop_colour_normal": Color("#FAA7B8"),
-		"shop_colour_hover": Color("f786a1ff"),
-		"shop_colour_pressed": Color("e64879ff"),
-		"shop_font": ""
-	},
-	{
-		"background": Color("#CCABDB"),
-		"completed_text": "#86E3CE",
-		"other_text": "#5F414F",
-		"shop_colour_normal": Color("#FA897B"),
-		"shop_colour_hover": Color("f56456ff"),
-		"shop_colour_pressed": Color("e73f35ff"),
-		"shop_font": ""
-	}
-]
+var round_total
+var player_total
 
 
 # Called when the node enters the scene tree for the first time.
@@ -154,7 +116,7 @@ func make_stylebox(color: Color, corner_radius: int = 6) -> StyleBoxFlat:
 
 
 func apply_styling() -> void:
-	palette = palettes.pick_random()
+	palette = PlayerStats.palettes.pick_random()
 	$Background.color = palette.background
 	var bar_fill := StyleBoxFlat.new()
 	bar_fill.bg_color = Color(palette.completed_text)
