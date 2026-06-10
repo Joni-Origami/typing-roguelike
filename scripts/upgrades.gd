@@ -9,10 +9,6 @@ func _ready() -> void:
 	print(rarity_list_of_upgrades)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
 var upgrades = [
 	{
 		"pretty_text": "Ghost writer",
@@ -91,7 +87,6 @@ func apply_upgrade(upgrade: Dictionary) -> void:
 	
 	if upgrade["id"] == "double_letters_bypass":
 		upgrades.erase(upgrade)
-		print(upgrades)
 	
 	match mode:
 		"set":

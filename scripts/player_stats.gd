@@ -12,10 +12,10 @@ func agitate_object(which_object) -> bool:
 	else:
 		return false
 
-var coins = 1000000
+var coins = 0
 var flat_coin = 0
 var round_time_mult = 1
-var mistake_mult_num = 30
+var mistake_mult_num = 20
 var double_bypass = false
 var reroll_sentence_amount = 0
 var amount_tab_fill = 0
