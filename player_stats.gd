@@ -1,15 +1,6 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
 #not stats, but usefull to be available everywhere
 var rotate_steps = [0.05,0.1,0.05,0,-0.05,-0.05,-0.1,-0.1,-0.1,0.05,-0.05,0,0.05,0.1,0.05]
 func agitate_object(which_object) -> bool:
@@ -24,7 +15,7 @@ func agitate_object(which_object) -> bool:
 var coins = 0
 var flat_coin = 0
 var round_time_mult = 1
-var mistake_penalty_mult = 2.5
+var mistake_penalty_div = 2.5
 var double_bypass = false
 var reroll_sentence_amount = 0
 var amount_tab_fill = 0

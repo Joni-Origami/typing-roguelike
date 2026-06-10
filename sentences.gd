@@ -27,7 +27,7 @@ var verbs = [
 	"steals ", "sings about ", "wants ", "runs alongside ", "punches ", "rips ", "pushes ", "drowns ",
 	"agitates ", "annoys ", "pioneers ", "destroys ", "discovers ", "saves ", "growls at ", "barks at ",
 	"meows at ", "yips at ", "snarls at ", "bites at ", "kisses ", "marries ", "hugs ", "confuses ",
-	"pinches ", "kicks  ", "licks ", "flicks at ", "throws a stone at ", "pulls at", "frowns at ",
+	"pinches ", "kicks  ", "licks ", "flicks at ", "throws a stone at ", "pulls at ", "frowns at ",
 	"rubs ", "brawls with ", "holds up ", "eats whole ", "sits on "
 ]
 

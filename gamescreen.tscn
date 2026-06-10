@@ -55,12 +55,12 @@ bg_color = Color(0.49803922, 0.5921569, 0.5058824, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otpj5"]
 bg_color = Color(0.33333334, 0.21568628, 0.24705882, 0.6156863)
-corner_radius_top_left = 10
-corner_radius_bottom_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3crv"]
-corner_radius_top_left = 6
-corner_radius_bottom_left = 6
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad3m1"]
 bg_color = Color(1, 0.3451546, 0.29239628, 1)
@@ -83,6 +83,32 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wl20n"]
+bg_color = Color(0.19337255, 0.5412684, 0.806771, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhcie"]
+bg_color = Color(0.91633177, 0.2106561, 0.17792833, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euf5d"]
+bg_color = Color(0.18717611, 0.18717617, 0.18717602, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8317985, 0.3043133, 0.4500401, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="GameplayScreen" type="Node2D" unique_id=724252821]
 script = ExtResource("1_igufd")
 
@@ -94,15 +120,6 @@ color = Color(0.68235296, 0.3882353, 0.47058824, 1)
 script = SubResource("GDScript_qr3ex")
 
 [node name="WinItems" type="Node" parent="." unique_id=357157186]
-
-[node name="RevealText" type="Label" parent="WinItems" unique_id=1445055764]
-offset_left = 448.0
-offset_top = 552.0
-offset_right = 704.0
-offset_bottom = 581.0
-theme_override_colors/font_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
-text = "↓ This is what you typed ↓"
-horizontal_alignment = 1
 
 [node name="ShopButton" type="Button" parent="WinItems" unique_id=428270089]
 offset_left = 936.0
@@ -117,7 +134,7 @@ text = "Shop"
 [node name="Gameplay" type="Node" parent="." unique_id=2084868176]
 
 [node name="Rotate" type="Node2D" parent="Gameplay" unique_id=1801247505]
-position = Vector2(576, 280)
+position = Vector2(659.48987, 271.61996)
 script = ExtResource("2_sdn3h")
 
 [node name="SentenceShow" type="RichTextLabel" parent="Gameplay/Rotate" unique_id=1225372798]
@@ -167,10 +184,10 @@ horizontal_alignment = 1
 vertical_alignment = 3
 
 [node name="SentenceTake" type="LineEdit" parent="Gameplay" unique_id=1077539471]
-offset_left = 8.0
-offset_top = 656.0
-offset_right = 1088.0
-offset_bottom = 712.0
+offset_left = 40.0
+offset_top = -64.0
+offset_right = 1112.0
+offset_bottom = -8.0
 theme_override_font_sizes/font_size = 22
 alignment = 1
 keep_editing_on_text_submit = true
@@ -186,9 +203,9 @@ virtual_keyboard_show_on_focus = false
 script = ExtResource("2_c4t3t")
 
 [node name="Timer_bar" type="ProgressBar" parent="Gameplay" unique_id=1527352075]
-offset_left = 1096.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_top = 192.0
+offset_right = 56.0
+offset_bottom = 480.0
 theme_override_styles/background = SubResource("StyleBoxFlat_otpj5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_r3crv")
 fill_mode = 2
@@ -217,20 +234,59 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_iaote")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7gmi0")
 text = "Reroll Sentence"
 
+[node name="Base_Rotate" type="Node2D" parent="Gameplay" unique_id=884942153]
+position = Vector2(124, 288)
+script = ExtResource("2_sdn3h")
+
+[node name="Base_Text" type="Button" parent="Gameplay/Base_Rotate" unique_id=1145177817]
+offset_left = -44.0
+offset_top = -32.0
+offset_right = 44.0
+offset_bottom = 32.0
+theme_override_colors/font_disabled_color = Color(0.95596343, 0.9559633, 0.95596343, 1)
+theme_override_styles/disabled = SubResource("StyleBoxFlat_wl20n")
+disabled = true
+text = "Base"
+
+[node name="Mult_Rotate" type="Node2D" parent="Gameplay" unique_id=1999060853]
+position = Vector2(124, 384)
+script = ExtResource("2_sdn3h")
+
+[node name="Mult_Text" type="Button" parent="Gameplay/Mult_Rotate" unique_id=675533794]
+offset_left = -48.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 32.0
+theme_override_colors/font_disabled_color = Color(0.95596343, 0.9559633, 0.95596343, 1)
+theme_override_styles/disabled = SubResource("StyleBoxFlat_bhcie")
+disabled = true
+text = "Mult"
+
+[node name="Rotate_Score" type="Node2D" parent="Gameplay" unique_id=470735850]
+position = Vector2(184, 128)
+script = ExtResource("2_sdn3h")
+
+[node name="RequiredScoreRead" type="Button" parent="Gameplay/Rotate_Score" unique_id=116541840]
+offset_left = -96.0
+offset_top = -32.0
+offset_right = 96.0
+offset_bottom = 32.0
+theme_override_colors/font_disabled_color = Color(0.8862618, 0.88626146, 0.8862615, 1)
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euf5d")
+disabled = true
+text = "Required Score"
+
 [node name="Player" type="Node" parent="." unique_id=1801745877]
 script = ExtResource("4_qr3ex")
 
-[node name="StatsText" type="RichTextLabel" parent="Player" unique_id=271683161]
-anchors_preset = -1
-anchor_left = 0.014
-anchor_top = 0.09900001
-anchor_right = 0.014
-anchor_bottom = 0.09900001
-offset_left = -0.12800026
-offset_top = -0.15200806
-offset_right = 143.872
-offset_bottom = 199.84799
-text = "Stats go here"
+[node name="StatsText" type="Button" parent="Player" unique_id=1267233668]
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 184.0
+offset_bottom = 64.0
+theme_override_colors/font_disabled_color = Color(0.91664016, 0.9166398, 0.9166398, 1)
+disabled = true
+text = "Coins: {coins}"
 
 [connection signal="pressed" from="WinItems/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="text_changed" from="Gameplay/SentenceTake" to="." method="_on_sentence_take_text_changed"]

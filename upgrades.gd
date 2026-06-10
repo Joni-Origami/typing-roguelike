@@ -49,7 +49,7 @@ var upgrades = [
 		"explanation": "Decrease the punishment for making a mistake by 0.25",
 		"id": "mistake_penalty",
 		"mode": "add",
-		"target": "mistake_penalty_mult",
+		"target": "mistake_penalty_div",
 		"value": -0.25,
 		"price": 10,
 		"rarity": "0.1" #rare
@@ -72,8 +72,8 @@ var upgrades = [
 		"target": "amount_tab_fill",
 		"value": 1,
 		"price": 25,
-		"rarity": "0.1" #common
-	}
+		"rarity": "0.2" #uncommon
+	},
 ]
 
 

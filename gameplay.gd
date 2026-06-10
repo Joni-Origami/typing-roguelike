@@ -12,6 +12,8 @@ var is_first_letter = true
 var max_timer_value : int
 var rotate_sentence = false
 var rotate_discards = false
+var rotate_base = false
+var rotate_mult = false
 var can_discard = true
 var coins_increase = 0
 var multiple_coin
@@ -20,6 +22,8 @@ var round_total
 var player_total
 var typed_already
 var used_predictive = false
+var base = 0
+var mult = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,9 +31,10 @@ func _ready() -> void:
 	apply_styling()
 	discard_sentence()
 	$Gameplay/SentenceTake.position = Vector2(8.0, -1000.0)
-	$WinItems/RevealText.hide()
 	$WinItems/ShopButton.hide()
 	$Gameplay/Timer_bar.value = 0
+	$Gameplay/Base_Rotate/Base_Text.text = str(base)
+	$Gameplay/Mult_Rotate/Mult_Text.text = str(mult)
 	update_stats(PlayerStats.coins)
 	if PlayerStats.reroll_sentence_amount >= 0:
 		$Gameplay/Rotate_Discard/Discard_Button.hide()
@@ -49,6 +54,12 @@ func _process(_delta: float) -> void:
 		if PlayerStats.agitate_object($Gameplay/Rotate_Discard):
 			rotate_discards = false
 			can_discard = true
+	if rotate_base:
+		if PlayerStats.agitate_object($Gameplay/Base_Rotate):
+			rotate_base = false
+	if rotate_mult:
+		if PlayerStats.agitate_object($Gameplay/Mult_Rotate):
+			rotate_mult = false
 
 
 func _on_sentence_take_text_changed(new_text: String) -> void:
@@ -60,6 +71,15 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 	var latest_letter = new_text[-1].to_lower()
 	if latest_letter == next_letter:
 		sentence_left = sentence_left.substr(1,-1)
+		
+		base += 1
+		rotate_base = true
+		if latest_letter.to_lower() in ["a", "e", "i", "o", "u"]:
+			mult += 1
+			rotate_mult = true
+		$Gameplay/Base_Rotate/Base_Text.text = str(base)
+		$Gameplay/Mult_Rotate/Mult_Text.text = str(mult)
+		
 		if PlayerStats.double_bypass:
 			if sentence_left == "":
 				pass
@@ -68,6 +88,8 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 				$Gameplay/Rotate/TypingProgress.value += 1
 		typed_already = sentences.correct_sentence.to_lower().trim_suffix(sentence_left.to_lower())
 		$Gameplay/Rotate/SentenceShow.text = ("[color=%s]" % palette.completed_text) + typed_already + ("[/color][color=%s]" % palette.other_text) + sentence_left + "!" 
+		$Gameplay/SentenceTake.text = typed_already
+		$Gameplay/SentenceTake.caret_column = $Gameplay/SentenceTake.text.length()
 		$Gameplay/Rotate/TypingProgress.value += 1
 	else:
 		mistakes_made += 1
@@ -77,28 +99,28 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 
 
 func sentence_finished() -> void:
+	$Gameplay/Rotate.rotation_degrees = 0
 	var multiple_mistakes
 	if mistakes_made == 1:
 		multiple_mistakes = "mistake"
 	else:
 		multiple_mistakes = "mistakes"
-	$Gameplay/SentenceTake.position = Vector2(8.0, 584.0)
-	give_rewards()
-	$Gameplay/Rotate.rotation_degrees = 0
 	$Gameplay/Rotate/SentenceShow.text = "Round clear!
-You made " + str(mistakes_made) + " " + multiple_mistakes + "
-you got " + str(coins_increase) + " " + multiple_coin
+You made " + str(mistakes_made) + " " + multiple_mistakes
+	timer_active = false
+	is_first_letter = true
+
+
+func round_finished() -> void:
+	give_rewards()
 	$Gameplay/Rotate/TypingProgress.hide()
-	$WinItems/RevealText.show()
 	$Gameplay/Timer_bar.show_percentage = true
 	$WinItems/ShopButton.show()
-	timer_active = false
-	is_first_letter = false
 
 
 func give_rewards() -> void:
 	var percentage_of_time = $Gameplay/Timer_bar.value / max_timer_value
-	coins_increase = int(1 + ((1-percentage_of_time) * 9) - floor(mistakes_made/PlayerStats.mistake_penalty_mult)) + PlayerStats.flat_coin
+	coins_increase = int(1 + ((1-percentage_of_time) * 9) - floor(mistakes_made/PlayerStats.mistake_penalty_div)) + PlayerStats.flat_coin
 	if coins_increase < 1:
 		coins_increase = 1
 		multiple_coin = "Coin"
