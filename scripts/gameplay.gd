@@ -83,6 +83,9 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 			elif latest_letter == sentence_left[0].to_lower(): #this is the letter after next_letter
 				sentence_left = sentence_left.substr(1,-1)
 				$Gameplay/Rotate/TypingProgress.value += 1
+				if sentence_left[0].to_lower() in ["a", "e", "i", "o", "u"]:
+					mult += 1
+					rotate_mult = true
 		typed_already = sentences.correct_sentence.to_lower().trim_suffix(sentence_left.to_lower())
 		$Gameplay/Rotate/SentenceShow.text = ("[color=%s]" % palette.completed_text) + typed_already + ("[/color][color=%s]" % palette.other_text) + sentence_left + "!" 
 		$Gameplay/SentenceTake.text = typed_already
@@ -99,7 +102,9 @@ func sentence_finished() -> void:
 	timer_active = false
 	is_first_letter = false
 	var percentage_of_time = 1 - ($Gameplay/Timer_bar.value / max_timer_value)
-	var score_this_sentence = int(floor((base * mult) * percentage_of_time))
+	var score_this_sentence = int(floor((base * mult) * percentage_of_time)) - (mistakes_made * 20) + 10
+	if score_this_sentence < 10:
+		score_this_sentence = 10
 	total_score += score_this_sentence
 	$Gameplay/Rotate.rotation_degrees = 0
 	var multiple_mistakes
@@ -131,6 +136,7 @@ func sentence_start():
 	if PlayerStats.reroll_sentence_amount > 0:
 		$Gameplay/Rotate_Discard/Discard_Button.show()
 	$Gameplay/Rotate_Discard/Next_Button.hide()
+	mistakes_made = 0
 	is_first_letter = true
 
 

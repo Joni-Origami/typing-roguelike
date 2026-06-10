@@ -9,8 +9,9 @@ var nouns = [
 	"mountain climber ", "tire ", "guitar ", "mouse ", "rat ", "spray bottle ", "tintin ",
 	"slinky ", "vaseline ", "lanyard ", "trouser leg ", "skirt ", "shirt ", "vampire ", "sun ",
 	"daughter ", "son ", "follower ", "streamer ", "wire ", "USB stick ", "keychain ",
-	"lost keys ", "pajamas ", "scissors ", "flashcard ", "lamp ", "timer ", "magnet ",
-	"scarf ", "bag ", "music festival ", "examiner "
+	"lost keys ", "pyjamas ", "scissors ", "flashcard ", "lamp ", "timer ", "magnet ",
+	"scarf ", "bag ", "music festival ", "examiner " ,"lunatic ", "chicken ", "egg ",
+	"tree ", "tie ", "dress "
 ]
 
 var adjectives = [
@@ -20,7 +21,8 @@ var adjectives = [
 	"angry ", "sticky ", "heated ", "crazy ", "cracked ", "sloppy ", "american ",
 	"british ", "french ", "german ", "spanish ", "scottish ", "welsh ", "irish ",
 	"purple ", "puzzled ", "confused ", "unusual ", "cold ", "warm ", "ace ",
-	"straight ", "dissapointed ", "new ", "swanky ", "drunk ", "nonplussed "
+	"straight ", "dissapointed ", "new ", "swanky ", "drunk ", "nonplussed ", "", #blank
+	"young ", "fickle ", "idiotic ", "ridiculous ", "poinless "
 ]
 
 var verbs = [
@@ -28,18 +30,19 @@ var verbs = [
 	"agitates ", "annoys ", "pioneers ", "destroys ", "discovers ", "saves ", "growls at ", "barks at ",
 	"meows at ", "yips at ", "snarls at ", "bites at ", "kisses ", "marries ", "hugs ", "confuses ",
 	"pinches ", "kicks ", "licks ", "flicks at ", "throws a stone at ", "pulls at ", "frowns at ",
-	"rubs ", "brawls with ", "holds up ", "eats whole ", "sits on "
+	"rubs ", "brawls with ", "holds up ", "eats whole ", "sits on ", "flips ", "circles ",
+	"encircles ", "repots ", "transmogrifies ", "snaps ", "manifests ", "expunges "
 ]
 
 var adverbs = [
 	"regrettably ", "quickly ", "light-heartedly ", "heavy-heartedly ", "speedily ", "smoothly ",
 	"harshly ", "slowly ", "annoyedly ", "tiredly ", "energetically ", "sloppily ", "angrily ",
 	"gaily ", "begrudgingly ", "happily ", "unfortunately ", "stupidly ", "lazily ", "", #blank
-	"ultimately "
+	"ultimately ", "loosely ", "thinly ", "boringly ", "unfortunately ", "undoubtedly "
 ]
 
 var connectives = [
-	"and ", "but ", "so ", "therefore ", "unfortunately ", "undoubtedly "
+	"and ", "but ", "so ", "therefore "
 ]
 
 var correct_sentence

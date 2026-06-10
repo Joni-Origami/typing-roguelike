@@ -10,6 +10,7 @@ offset_left = 312.0
 offset_top = 240.0
 offset_right = 464.0
 offset_bottom = 360.0
+disabled = true
 text = "Shop Scene"
 
 [node name="Gamescreen" type="Button" parent="." unique_id=2070216097]
@@ -17,7 +18,7 @@ offset_left = 688.0
 offset_top = 240.0
 offset_right = 840.0
 offset_bottom = 360.0
-text = "Gamescreen"
+text = "Start"
 
 [node name="Label" type="Label" parent="." unique_id=1660546783]
 offset_left = 296.0
