@@ -30,14 +30,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 clip_text = true
 
-[node name="Button" type="Button" parent="." unique_id=1240355136]
-offset_left = 16.0
-offset_top = 552.0
-offset_right = 185.45013
-offset_bottom = 615.11005
-text = "give 100 coins"
-
-[node name="LinkButton" type="LinkButton" parent="." unique_id=1147026359]
+[node name="Github_Link" type="LinkButton" parent="." unique_id=1147026359]
 offset_left = 1088.0
 offset_top = 616.0
 offset_right = 1152.0
@@ -45,8 +38,7 @@ offset_bottom = 648.0
 button_mask = 3
 text = "Github"
 underline = 1
-uri = "https://github.com/Joni-Origami/typing-roguelike"
+uri = "https://github.com/Jade-Origami/typing-roguelike"
 
 [connection signal="pressed" from="shop_scene" to="." method="_on_shop_scene_pressed"]
 [connection signal="pressed" from="Gamescreen" to="." method="_on_gamescreen_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

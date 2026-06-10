@@ -16,7 +16,3 @@ func _on_shop_scene_pressed() -> void:
 
 func _on_gamescreen_pressed() -> void:
 	get_tree().change_scene_to_file('res://gamescreen.tscn')
-
-
-func _on_button_pressed() -> void:
-	PlayerStats.coins += 100
