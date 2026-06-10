@@ -46,11 +46,11 @@ var upgrades = [
 	},
 	{
 		"pretty_text": "Autocorrect",
-		"explanation": "Decrease the punishment for making a mistake by 0.25",
+		"explanation": "Decrease the punishment for making a mistake by 5 points",
 		"id": "mistake_penalty",
 		"mode": "add",
-		"target": "mistake_penalty_div",
-		"value": -0.25,
+		"target": "mistake_mult_num",
+		"value": 5,
 		"price": 10,
 		"rarity": "0.1" #rare
 	},
@@ -88,6 +88,10 @@ func apply_upgrade(upgrade: Dictionary) -> void:
 	var target = upgrade["target"]
 	var mode = upgrade["mode"]
 	var value = upgrade["value"]
+	
+	if upgrade["id"] == "double_letters_bypass":
+		upgrades.erase(upgrade)
+		print(upgrades)
 	
 	match mode:
 		"set":
