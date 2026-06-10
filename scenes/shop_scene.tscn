@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b2emkececoexq"]
 
-[ext_resource type="Script" uid="uid://cko6dwdh0aihq" path="res://shop_scene.gd" id="1_42hh6"]
-[ext_resource type="Script" uid="uid://6x7gpulcuuau" path="res://player_stats.gd" id="2_ylxq0"]
-[ext_resource type="Script" uid="uid://bmddksfr8nqhx" path="res://rotate_controller.gd" id="3_tlo24"]
+[ext_resource type="Script" uid="uid://cko6dwdh0aihq" path="res://scripts/shop_scene.gd" id="1_hovpq"]
+[ext_resource type="Script" uid="uid://6x7gpulcuuau" path="res://scripts/player_stats.gd" id="2_ykrk4"]
+[ext_resource type="Script" uid="uid://bmddksfr8nqhx" path="res://scripts/rotate_controller.gd" id="3_fdhsn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylxq0"]
 bg_color = Color(0.49803922, 0.6745098, 0.8392157, 1)
@@ -155,7 +155,7 @@ corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
 [node name="ShopScene" type="Node2D" unique_id=1063027230]
-script = ExtResource("1_42hh6")
+script = ExtResource("1_hovpq")
 
 [node name="background" type="ColorRect" parent="." unique_id=1845885667]
 offset_right = 1152.0
@@ -173,7 +173,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_tlo24")
 text = "Next round"
 
 [node name="Player" type="Node" parent="." unique_id=975278413]
-script = ExtResource("2_ylxq0")
+script = ExtResource("2_ykrk4")
 
 [node name="StatsText" type="RichTextLabel" parent="Player" unique_id=388855911]
 offset_left = 16.0
@@ -187,7 +187,7 @@ text = "Coins: {coins}"
 
 [node name="Rotate_1" type="Node2D" parent="Items_for_sale" unique_id=963216354]
 position = Vector2(216, 120)
-script = ExtResource("3_tlo24")
+script = ExtResource("3_fdhsn")
 
 [node name="Item_1" type="Button" parent="Items_for_sale/Rotate_1" unique_id=2028086448]
 offset_left = -152.0
@@ -219,7 +219,7 @@ text = "Coins"
 
 [node name="Rotate_2" type="Node2D" parent="Items_for_sale" unique_id=675225385]
 position = Vector2(576, 120)
-script = ExtResource("3_tlo24")
+script = ExtResource("3_fdhsn")
 
 [node name="Item_2" type="Button" parent="Items_for_sale/Rotate_2" unique_id=1989279313]
 offset_left = -144.0
@@ -251,7 +251,7 @@ text = "Coins"
 
 [node name="Rotate_3" type="Node2D" parent="Items_for_sale" unique_id=2094369185]
 position = Vector2(936, 120)
-script = ExtResource("3_tlo24")
+script = ExtResource("3_fdhsn")
 
 [node name="Item_3" type="Button" parent="Items_for_sale/Rotate_3" unique_id=1754266222]
 offset_left = -152.0
@@ -284,7 +284,7 @@ text = "Coins"
 
 [node name="Rotate_Reroll" type="Node2D" parent="Items_for_sale" unique_id=1635466870]
 position = Vector2(1024, 456)
-script = ExtResource("3_tlo24")
+script = ExtResource("3_fdhsn")
 
 [node name="Reroll_button" type="Button" parent="Items_for_sale/Rotate_Reroll" unique_id=2003342236]
 offset_left = -64.0

@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 			rotate_item_3 = false
 
 func _on_new_round_pressed() -> void:
-	get_tree().change_scene_to_file('res://gamescreen.tscn')
+	get_tree().change_scene_to_file("res://scenes/gamescreen.tscn")
 
 func item_brought(_item_num) -> void:
 	#item buy logic here

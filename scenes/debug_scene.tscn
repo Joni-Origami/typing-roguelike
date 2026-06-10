@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ddtkxyigw5b4g"]
 
-[ext_resource type="Script" uid="uid://bk1oj24qes0w" path="res://debug_scene.gd" id="1_lnlp5"]
+[ext_resource type="Script" uid="uid://bk1oj24qes0w" path="res://scripts/debug_scene.gd" id="1_3e1qr"]
 
 [node name="debug scene" type="Node2D" unique_id=954179254]
-script = ExtResource("1_lnlp5")
+script = ExtResource("1_3e1qr")
 
 [node name="shop_scene" type="Button" parent="." unique_id=609361011]
 offset_left = 312.0

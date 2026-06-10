@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://vp8aq3w75a53"]
 
-[ext_resource type="Script" uid="uid://d0bq4t5em8tti" path="res://gameplay.gd" id="1_igufd"]
-[ext_resource type="Script" uid="uid://xd2biytgk0mm" path="res://inputevents.gd" id="2_c4t3t"]
-[ext_resource type="Script" uid="uid://bmddksfr8nqhx" path="res://rotate_controller.gd" id="2_sdn3h"]
-[ext_resource type="Script" uid="uid://dhtaqa2r4sc0x" path="res://sentences.gd" id="2_xrcqf"]
-[ext_resource type="Script" uid="uid://6x7gpulcuuau" path="res://player_stats.gd" id="4_qr3ex"]
+[ext_resource type="Script" uid="uid://d0bq4t5em8tti" path="res://scripts/gameplay.gd" id="1_bp0ix"]
+[ext_resource type="Script" uid="uid://bmddksfr8nqhx" path="res://scripts/rotate_controller.gd" id="2_82mmq"]
+[ext_resource type="Script" uid="uid://dhtaqa2r4sc0x" path="res://scripts/sentences.gd" id="3_31tqg"]
+[ext_resource type="Script" uid="uid://xd2biytgk0mm" path="res://scripts/inputevents.gd" id="4_6v8b5"]
+[ext_resource type="Script" uid="uid://6x7gpulcuuau" path="res://scripts/player_stats.gd" id="5_avas0"]
 
 [sub_resource type="GDScript" id="GDScript_qr3ex"]
 script/source = "extends ColorRect
@@ -142,7 +142,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="GameplayScreen" type="Node2D" unique_id=724252821]
-script = ExtResource("1_igufd")
+script = ExtResource("1_bp0ix")
 
 [node name="Background" type="ColorRect" parent="." unique_id=910089657]
 z_index = -1
@@ -167,7 +167,7 @@ text = "Shop"
 
 [node name="Rotate" type="Node2D" parent="Gameplay" unique_id=1801247505]
 position = Vector2(659.48987, 271.61996)
-script = ExtResource("2_sdn3h")
+script = ExtResource("2_82mmq")
 
 [node name="SentenceShow" type="RichTextLabel" parent="Gameplay/Rotate" unique_id=1225372798]
 z_index = 1
@@ -182,7 +182,7 @@ fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
 horizontal_alignment = 1
-script = ExtResource("2_xrcqf")
+script = ExtResource("3_31tqg")
 
 [node name="Newspaper" type="ColorRect" parent="Gameplay/Rotate" unique_id=805639919]
 z_index = -1
@@ -232,7 +232,7 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 virtual_keyboard_show_on_focus = false
-script = ExtResource("2_c4t3t")
+script = ExtResource("4_6v8b5")
 
 [node name="Timer_bar" type="ProgressBar" parent="Gameplay" unique_id=1527352075]
 offset_top = 176.0
@@ -264,7 +264,7 @@ text = "Required Score"
 
 [node name="Rotate_Discard" type="Node2D" parent="Gameplay" unique_id=980317954]
 position = Vector2(88, 584)
-script = ExtResource("2_sdn3h")
+script = ExtResource("2_82mmq")
 
 [node name="Discard_Button" type="Button" parent="Gameplay/Rotate_Discard" unique_id=98210761]
 offset_left = -64.0
@@ -290,7 +290,7 @@ text = "Next Sentence"
 
 [node name="Base_Rotate" type="Node2D" parent="Gameplay" unique_id=884942153]
 position = Vector2(116, 280)
-script = ExtResource("2_sdn3h")
+script = ExtResource("2_82mmq")
 
 [node name="Base_Text" type="Button" parent="Gameplay/Base_Rotate" unique_id=1145177817]
 offset_left = -44.0
@@ -304,7 +304,7 @@ text = "Base"
 
 [node name="Mult_Rotate" type="Node2D" parent="Gameplay" unique_id=1999060853]
 position = Vector2(120, 376)
-script = ExtResource("2_sdn3h")
+script = ExtResource("2_82mmq")
 
 [node name="Mult_Text" type="Button" parent="Gameplay/Mult_Rotate" unique_id=675533794]
 offset_left = -48.0
@@ -331,7 +331,7 @@ disabled = true
 text = "Total Score"
 
 [node name="Player" type="Node" parent="." unique_id=1801745877]
-script = ExtResource("4_qr3ex")
+script = ExtResource("5_avas0")
 
 [node name="StatsText" type="Button" parent="Player" unique_id=1267233668]
 offset_left = 24.0

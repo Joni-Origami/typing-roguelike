@@ -11,8 +11,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_shop_scene_pressed() -> void:
-	get_tree().change_scene_to_file('res://shop_scene.tscn')
+	get_tree().change_scene_to_file("res://scenes/shop_scene.tscn")
 
 
 func _on_gamescreen_pressed() -> void:
-	get_tree().change_scene_to_file('res://gamescreen.tscn')
+	get_tree().change_scene_to_file("res://scenes/gamescreen.tscn")
