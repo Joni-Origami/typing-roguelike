@@ -1,3 +1,27 @@
 [gd_scene format=3 uid="uid://mgkmrdc8dcj5"]
 
+[ext_resource type="Script" uid="uid://b53mkv13sbr12" path="res://scripts/level_selector.gd" id="1_aeu7d"]
+
 [node name="Level_selector" type="Node2D" unique_id=938700675]
+script = ExtResource("1_aeu7d")
+
+[node name="Stage_1" type="Button" parent="." unique_id=556212078]
+offset_left = 128.0
+offset_top = 256.0
+offset_right = 320.0
+offset_bottom = 384.0
+text = "Stage 1: 300 points"
+
+[node name="Stage_2" type="Button" parent="." unique_id=754825441]
+offset_left = 480.0
+offset_top = 256.0
+offset_right = 672.0
+offset_bottom = 384.0
+text = "Stage 2: 450 points"
+
+[node name="Stage_3" type="Button" parent="." unique_id=1929257894]
+offset_left = 832.0
+offset_top = 256.0
+offset_right = 1024.0
+offset_bottom = 384.0
+text = "Stage 3: 600 points"

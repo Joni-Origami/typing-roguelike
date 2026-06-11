@@ -13,7 +13,7 @@ config_version=5
 config/name="Slow News Day"
 run/main_scene="uid://ddtkxyigw5b4g"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://sprites/icon.svg"
 
 [autoload]
 

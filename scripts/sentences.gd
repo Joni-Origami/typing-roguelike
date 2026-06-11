@@ -16,13 +16,13 @@ var nouns = [
 
 var adjectives = [
 	"transgender ", "gay ", "tall ", "short ", "heavy ", "light ", "powerful ", "old ",
-	"wet ", "decrepid ", "slippery ", "stinky ", "broken ", "discoloured ", "pink ",
+	"wet ", "decrepid ", "slippery ", "crumbling ", "broken ", "discoloured ", "pink ",
 	"blue ", "red ", "green ", "grey ", "tired ", "folded ", "slimy ", "soft ",
 	"angry ", "sticky ", "heated ", "crazy ", "cracked ", "sloppy ", "american ",
 	"british ", "french ", "german ", "spanish ", "scottish ", "welsh ", "irish ",
 	"purple ", "puzzled ", "confused ", "unusual ", "cold ", "warm ", "ace ",
 	"straight ", "dissapointed ", "new ", "swanky ", "drunk ", "nonplussed ", "", #blank
-	"young ", "fickle ", "idiotic ", "ridiculous ", "poinless "
+	"young ", "fickle ", "idiotic ", "ridiculous ", "pointless "
 ]
 
 var verbs = [
