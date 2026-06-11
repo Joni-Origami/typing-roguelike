@@ -97,11 +97,11 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 
 
 func check_for_upgrades(letter) -> void:
-	if letter.to_lower() == " ":
+	if letter.to_lower() == " ": #When word finished
 			mult += 1
 			rotate_mult = true
 	
-	if PlayerStats.a_gives_mult:
+	if PlayerStats.a_gives_mult: #Ace Writer
 		if letter.to_lower() == "a":
 			mult += 2
 			base += 2
