@@ -22,6 +22,7 @@ var amount_tab_fill = 0
 var completed_rounds = 0
 var target_this_round : int
 var sentences_allowed = 4
+var a_gives_mult = false
 
 var palettes = [
 	{

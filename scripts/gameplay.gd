@@ -101,12 +101,11 @@ func check_for_upgrades(letter) -> void:
 			mult += 1
 			rotate_mult = true
 	
-	if letter.to_lower() == "a":
-		mult += 2
-		base += 2
-		rotate_mult = true
-	
-	
+	if PlayerStats.a_gives_mult:
+		if letter.to_lower() == "a":
+			mult += 2
+			base += 2
+			rotate_mult = true
 
 
 func sentence_finished() -> void:
