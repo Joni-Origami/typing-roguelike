@@ -71,7 +71,7 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 		
 		base += 1
 		rotate_base = true
-		if latest_letter.to_lower() in ["a", "e", "i", "o", "u"]:
+		if latest_letter.to_lower() == " ":
 			mult += 1
 			rotate_mult = true
 		$Gameplay/Base_Rotate/Base_Text.text = str(base)
@@ -83,7 +83,7 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 			elif latest_letter == sentence_left[0].to_lower(): #this is the letter after next_letter
 				sentence_left = sentence_left.substr(1,-1)
 				$Gameplay/Rotate/TypingProgress.value += 1
-				if sentence_left[0].to_lower() in ["a", "e", "i", "o", "u"]:
+				if sentence_left[0].to_lower() == " ":
 					mult += 1
 					rotate_mult = true
 		typed_already = sentences.correct_sentence.to_lower().trim_suffix(sentence_left.to_lower())
