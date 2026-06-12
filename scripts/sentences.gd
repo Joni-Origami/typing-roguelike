@@ -11,7 +11,7 @@ var nouns = [
 	"daughter ", "son ", "follower ", "streamer ", "wire ", "USB stick ", "keychain ",
 	"lost keys ", "pyjamas ", "scissors ", "flashcard ", "lamp ", "timer ", "magnet ",
 	"scarf ", "bag ", "music festival ", "examiner " ,"lunatic ", "chicken ", "egg ",
-	"tree ", "tie ", "dress "
+	"tree ", "tie ", "dress ", "wii sports resort ", "pokemon ", "hair "
 ]
 
 var adjectives = [
@@ -22,7 +22,8 @@ var adjectives = [
 	"british ", "french ", "german ", "spanish ", "scottish ", "welsh ", "irish ",
 	"purple ", "puzzled ", "confused ", "unusual ", "cold ", "warm ", "ace ",
 	"straight ", "dissapointed ", "new ", "swanky ", "drunk ", "nonplussed ", "", #blank
-	"young ", "fickle ", "idiotic ", "ridiculous ", "pointless "
+	"young ", "fickle ", "idiotic ", "ridiculous ", "pointless ", "orange ",
+	"hairy "
 ]
 
 var verbs = [
