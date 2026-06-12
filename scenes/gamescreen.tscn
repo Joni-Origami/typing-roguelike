@@ -62,18 +62,6 @@ corner_radius_bottom_right = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euf5d"]
-bg_color = Color(0.18717611, 0.18717617, 0.18717602, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.8317985, 0.3043133, 0.4500401, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad3m1"]
 bg_color = Color(1, 0.3451546, 0.29239628, 1)
 corner_radius_top_left = 6
@@ -130,12 +118,31 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31tqg"]
+bg_color = Color(0.7080092, 0.11673295, 0.8369716, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qi3u4"]
 bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euf5d"]
+bg_color = Color(0.18717611, 0.18717617, 0.18717602, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8317985, 0.3043133, 0.4500401, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -148,13 +155,22 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82mmq"]
+bg_color = Color(0.8908692, 0.72279423, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="GameplayScreen" type="Node2D" unique_id=724252821]
+position = Vector2(0, -64)
 script = ExtResource("1_bp0ix")
 
 [node name="Background" type="ColorRect" parent="." unique_id=910089657]
 z_index = -1
+offset_top = 64.0
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 712.0
 color = Color(0.68235296, 0.3882353, 0.47058824, 1)
 script = SubResource("GDScript_qr3ex")
 
@@ -173,7 +189,7 @@ text = "Shop"
 [node name="Gameplay" type="Node" parent="." unique_id=2084868176]
 
 [node name="Rotate" type="Node2D" parent="Gameplay" unique_id=1801247505]
-position = Vector2(659.48987, 271.61996)
+position = Vector2(550, 271.62)
 script = ExtResource("2_82mmq")
 
 [node name="SentenceShow" type="RichTextLabel" parent="Gameplay/Rotate" unique_id=1225372798]
@@ -242,32 +258,16 @@ virtual_keyboard_show_on_focus = false
 script = ExtResource("4_6v8b5")
 
 [node name="Timer_bar" type="ProgressBar" parent="Gameplay" unique_id=1527352075]
-offset_top = 176.0
-offset_right = 56.0
-offset_bottom = 480.0
+anchors_preset = -1
+anchor_bottom = 0.024691358
+offset_top = 24.0
+offset_right = 248.0
+offset_bottom = 416.0
 theme_override_styles/background = SubResource("StyleBoxFlat_otpj5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_r3crv")
 fill_mode = 2
 show_percentage = false
-
-[node name="Label" type="Label" parent="Gameplay/Timer_bar" unique_id=1946594539]
-layout_mode = 0
-offset_top = -1.0
-offset_right = 56.0
-offset_bottom = 47.0
-text = "Timer "
-horizontal_alignment = 2
-
-[node name="RequiredScoreRead" type="Button" parent="Gameplay" unique_id=116541840]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 192.0
-offset_bottom = 80.0
-theme_override_colors/font_disabled_color = Color(0.8862618, 0.88626146, 0.8862615, 1)
-theme_override_font_sizes/font_size = 20
-theme_override_styles/disabled = SubResource("StyleBoxFlat_euf5d")
-disabled = true
-text = "Required Score"
+metadata/_edit_use_anchors_ = true
 
 [node name="Rotate_Discard" type="Node2D" parent="Gameplay" unique_id=980317954]
 position = Vector2(88, 584)
@@ -296,25 +296,36 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_lnmny")
 text = "Next Sentence"
 
 [node name="Base_Rotate" type="Node2D" parent="Gameplay" unique_id=884942153]
-position = Vector2(116, 280)
+position = Vector2(56, 232)
 script = ExtResource("2_82mmq")
 
 [node name="Base_Text" type="Button" parent="Gameplay/Base_Rotate" unique_id=1145177817]
-offset_left = -44.0
+offset_left = -40.0
 offset_top = -32.0
-offset_right = 44.0
+offset_right = 40.0
 offset_bottom = 32.0
 theme_override_colors/font_disabled_color = Color(0.95596343, 0.9559633, 0.95596343, 1)
 theme_override_styles/disabled = SubResource("StyleBoxFlat_wl20n")
 disabled = true
 text = "Base"
+metadata/_edit_use_anchors_ = true
+
+[node name="X" type="RichTextLabel" parent="Gameplay" unique_id=515331683]
+offset_left = 96.0
+offset_top = 200.0
+offset_right = 152.0
+offset_bottom = 264.0
+theme_override_font_sizes/normal_font_size = 29
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Mult_Rotate" type="Node2D" parent="Gameplay" unique_id=1999060853]
-position = Vector2(120, 376)
+position = Vector2(192, 232)
 script = ExtResource("2_82mmq")
 
 [node name="Mult_Text" type="Button" parent="Gameplay/Mult_Rotate" unique_id=675533794]
-offset_left = -48.0
+offset_left = -40.0
 offset_top = -32.0
 offset_right = 40.0
 offset_bottom = 32.0
@@ -322,46 +333,79 @@ theme_override_colors/font_disabled_color = Color(0.95596343, 0.9559633, 0.95596
 theme_override_styles/disabled = SubResource("StyleBoxFlat_bhcie")
 disabled = true
 text = "Mult"
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer_Rotate" type="Node2D" parent="Gameplay" unique_id=1922769984]
+position = Vector2(120, 304)
+script = ExtResource("2_82mmq")
+
+[node name="Timer_Percentage" type="Button" parent="Gameplay/Timer_Rotate" unique_id=1508718032]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 40.0
+offset_bottom = 32.0
+theme_override_colors/font_disabled_color = Color(0.95596343, 0.9559633, 0.95596343, 1)
+theme_override_styles/disabled = SubResource("StyleBoxFlat_31tqg")
+disabled = true
+text = "Timer"
 
 [node name="Total_Score_Rotate" type="Node2D" parent="Gameplay" unique_id=1106564309]
-position = Vector2(104, 128)
+position = Vector2(120, 152)
 
 [node name="Total_Score" type="Button" parent="Gameplay/Total_Score_Rotate" unique_id=2121505188]
-offset_left = -88.0
+offset_left = -104.0
 offset_top = -32.0
-offset_right = 88.0
+offset_right = 112.0
 offset_bottom = 32.0
 theme_override_colors/font_disabled_color = Color(0.9297146, 0.9297147, 0.9297146, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/disabled = SubResource("StyleBoxFlat_qi3u4")
 disabled = true
-text = "Total Score"
+text = "Total "
+metadata/_edit_use_anchors_ = true
+
+[node name="RequiredScoreRead" type="Button" parent="Gameplay" unique_id=116541840]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 232.0
+offset_bottom = 104.0
+theme_override_colors/font_disabled_color = Color(0.8862618, 0.88626146, 0.8862615, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/disabled = SubResource("StyleBoxFlat_euf5d")
+disabled = true
+text = "Required"
+metadata/_edit_use_anchors_ = true
 
 [node name="Hands_Rotate" type="Node2D" parent="Gameplay" unique_id=36159459]
-position = Vector2(1040, 64)
+position = Vector2(184, 376)
+script = ExtResource("2_82mmq")
 
 [node name="Hands_Counter" type="Button" parent="Gameplay/Hands_Rotate" unique_id=403110168]
-offset_left = -64.0
-offset_top = -32.0
-offset_right = 64.0
+offset_left = -48.0
+offset_top = -24.0
+offset_right = 48.0
 offset_bottom = 40.0
 theme_override_colors/font_disabled_color = Color(0.96035105, 0.96035105, 0.96035093, 1)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/disabled = SubResource("StyleBoxFlat_bp0ix")
 disabled = true
-text = "Hands Here"
+text = "Hands"
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" type="Node" parent="." unique_id=1801745877]
 script = ExtResource("5_avas0")
 
 [node name="StatsText" type="Button" parent="Player" unique_id=1267233668]
-offset_left = 24.0
-offset_top = 496.0
-offset_right = 152.0
-offset_bottom = 536.0
+offset_left = 16.0
+offset_top = 352.0
+offset_right = 112.0
+offset_bottom = 416.0
 theme_override_colors/font_disabled_color = Color(0.91664016, 0.9166398, 0.9166398, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/disabled = SubResource("StyleBoxFlat_82mmq")
 disabled = true
-text = "Coins: {coins}"
+text = "Coins"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="WinItems/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="text_changed" from="Gameplay/SentenceTake" to="." method="_on_sentence_take_text_changed"]

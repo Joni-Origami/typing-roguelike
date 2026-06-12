@@ -13,7 +13,7 @@ var rotate_item_3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Player/StatsText.text = "Coins: " + str(PlayerStats.coins)
+	$Player/StatsText.text = "£" + str(PlayerStats.coins)
 	$Items_for_sale/Rotate_1/Item_1/Buy_Button.hide()
 	$Items_for_sale/Rotate_2/Item_2/Buy_Button.hide()
 	$Items_for_sale/Rotate_3/Item_3/Buy_Button.hide()

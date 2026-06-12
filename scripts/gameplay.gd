@@ -14,6 +14,7 @@ var rotate_sentence = false
 var rotate_discards = false
 var rotate_base = false
 var rotate_mult = false
+var rotate_hands
 var can_discard = true
 var multiple_coin
 var palette
@@ -56,6 +57,9 @@ func _process(_delta: float) -> void:
 	if rotate_mult:
 		if PlayerStats.agitate_object($Gameplay/Mult_Rotate):
 			rotate_mult = false
+	if rotate_hands:
+		if PlayerStats.agitate_object($Gameplay/Hands_Rotate):
+			rotate_hands = false
 
 
 func _on_sentence_take_text_changed(new_text: String) -> void:
@@ -180,7 +184,8 @@ func _on_shop_button_pressed() -> void:
 
 
 func update_stats() -> void:
-	$Player/StatsText.text = "Coins: " + str(PlayerStats.coins)
+	$Player/StatsText.text = "£" + str(PlayerStats.coins)
+	rotate_hands = true
 	$Gameplay/Hands_Rotate/Hands_Counter.text = str(sentences_used) + " / " + str(PlayerStats.sentences_allowed)
 	$Gameplay/Total_Score_Rotate/Total_Score.text = str(total_score)
 
