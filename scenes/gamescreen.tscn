@@ -308,7 +308,6 @@ theme_override_colors/font_disabled_color = Color(0.95596343, 0.9559633, 0.95596
 theme_override_styles/disabled = SubResource("StyleBoxFlat_wl20n")
 disabled = true
 text = "Base"
-metadata/_edit_use_anchors_ = true
 
 [node name="X" type="RichTextLabel" parent="Gameplay" unique_id=515331683]
 offset_left = 96.0
