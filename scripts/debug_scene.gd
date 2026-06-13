@@ -10,9 +10,5 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _on_shop_scene_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/shop_scene.tscn")
-
-
 func _on_gamescreen_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_selector.tscn")

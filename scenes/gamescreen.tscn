@@ -163,14 +163,12 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="GameplayScreen" type="Node2D" unique_id=724252821]
-position = Vector2(0, -64)
 script = ExtResource("1_bp0ix")
 
 [node name="Background" type="ColorRect" parent="." unique_id=910089657]
 z_index = -1
-offset_top = 64.0
 offset_right = 1152.0
-offset_bottom = 712.0
+offset_bottom = 648.0
 color = Color(0.68235296, 0.3882353, 0.47058824, 1)
 script = SubResource("GDScript_qr3ex")
 

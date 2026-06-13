@@ -27,7 +27,7 @@ var mult : int
 var total_score = 0
 var sentences_used = 0
 var percentage_of_time = 0
-var timer_even = true
+var double_speed_amount = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,15 +39,21 @@ func _ready() -> void:
 	sentence_start()
 
 
+func timer_increment() -> void:
+	time_passed += 1
+	$Gameplay/Timer_bar.value = time_passed
+	if time_passed >= max_timer_value:
+		timer_active = false
+	percentage_of_time = 1.5 - ($Gameplay/Timer_bar.value / max_timer_value)
+	$Gameplay/Timer_Rotate/Timer_Percentage.text = str(snapped(percentage_of_time, 0.01))
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if timer_active and timer_even:
-		time_passed += 1
-		$Gameplay/Timer_bar.value = time_passed
-		if time_passed >= max_timer_value:
-			timer_active = false
-		percentage_of_time = 1.5 - ($Gameplay/Timer_bar.value / max_timer_value)
-		$Gameplay/Timer_Rotate/Timer_Percentage.text = str(snapped(percentage_of_time, 0.01))
+	if timer_active :
+		timer_increment()
+	if timer_active and double_speed_amount > 0:
+		double_speed_amount -= 1
+		timer_increment()
 	if rotate_sentence:
 		if PlayerStats.agitate_object($Gameplay/Rotate):
 			rotate_sentence = false
@@ -92,6 +98,7 @@ func _on_sentence_take_text_changed(new_text: String) -> void:
 		$Gameplay/Rotate/TypingProgress.value += 1
 	else:
 		mistakes_made += 1
+		double_speed_amount += 30
 		rotate_sentence = true
 	if sentence_left.is_empty(): #Sentence has been typed correctly
 		sentence_finished()
@@ -126,7 +133,7 @@ func sentence_finished() -> void:
 	timer_active = false
 	is_first_letter = false
 	
-	var score_this_sentence = int(floor((base * mult) * percentage_of_time)) - (mistakes_made * PlayerStats.mistake_mult_num) + 10
+	var score_this_sentence = int(floor((base * mult) * percentage_of_time)) + 10
 	if score_this_sentence < 10:
 		score_this_sentence = 10
 	total_score += score_this_sentence
@@ -173,12 +180,13 @@ func round_finished() -> void:
 
 
 func give_rewards() -> void:
-	var coins_increase = ((4 - sentences_used) * 2) + PlayerStats.flat_coin
+	var coins_increase = ((4 - sentences_used) * 2)
 	if coins_increase < 1:
 		coins_increase = 1
 		multiple_coin = "Coin"
 	else:
 		multiple_coin = "Coins"
+	coins_increase += PlayerStats.flat_coin
 	PlayerStats.coins += coins_increase
 	update_stats()
 
@@ -235,7 +243,7 @@ func discard_sentence() -> void:
 	sentence_left = sentences.correct_sentence
 	$Gameplay/Rotate/TypingProgress.max_value = sentences.correct_sentence.length()
 	$Gameplay/Rotate/SentenceShow.text = ("[color=%s]" % palette.other_text) + sentences.correct_sentence + "!"
-	max_timer_value = int(sentences.correct_sentence.length() * 20 * PlayerStats.round_time_mult)
+	max_timer_value = int(sentences.correct_sentence.length() * 17.5 * PlayerStats.round_time_mult)
 	$Gameplay/Timer_bar.max_value = max_timer_value
 	$Gameplay/Rotate.rotation_degrees = randi_range(-25, 25)
 
